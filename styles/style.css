@@ -8,7 +8,8 @@
 
 :root{
     --left-width: clamp(120px, 40vw, 800px);
-    --text-width: clamp(30ch, 40vw, 70ch);
+    --text-width: clamp(30ch, 40vw, 75ch);
+    --right-width: clamp(30ch, 40vw, 50rem);
     --legend-font-size: calc(1rem + .8vw);
     --medium-font-size: calc(1rem + .4vw);
     --small-font-size: calc(1rem + .1vw);
@@ -32,16 +33,20 @@ body{
 #mainContainer {
     display: flex;
     gap: 3rem;
+    flex-wrap: wrap;
     flex: 1;
 }
 
 #fernBG {
-    flex: 1;
+    flex: 0;
     height: auto;
     width: var(--left-width);
 }
 
 #leftSide{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
     position: relative;
     width: var(--left-width);
 }
@@ -49,12 +54,14 @@ body{
 #rightSide{
     display: flex;
     flex-direction: column;
-    width: clamp(180px, 55vw, 1200px);
+    width: var(--right-width);
     justify-content: center;
 }
 
 p {
-    max-width: var(--text-width);
+    max-width: var(--right-width);
+    font-size: var(--small-font-size);
+    font-weight: 600;
 }
 
 #logoDiv {
@@ -93,12 +100,14 @@ h1{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    width: var(--text-width);;
+    width: var(--right-width);
     gap: 2rem;
     padding: 1rem 0;
+    box-shadow: 0px 2px #80808040;
 }
 
 legend {
+    margin-top: calc(2 * var(--legend-font-size));
     margin-bottom: var(--legend-font-size);
     font-size: var(--legend-font-size);
     font-weight: 600;
@@ -106,7 +115,7 @@ legend {
 
 input, label{
     display: block;
-    width: calc(var(--text-width) / 2.2);
+    width: calc(var(--right-width) / 2.2);
 }
 
 button {
@@ -129,4 +138,21 @@ a, a:visited{
 
 label {
     font-size: var(--small-font-size);
+    color: #272727;
+}
+
+input {
+    font-size: var(--small-font-size);
+    padding: .5rem;
+    border-radius: .5rem;
+    border: 2px solid #80808080;
+}
+
+#creds {
+    align-self: center;
+    padding: 0;
+    margin: 0;
+    color: aliceblue;
+    position: relative;
+    margin-top: calc(-2rem - 5vw);
 }
