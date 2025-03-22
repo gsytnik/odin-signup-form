@@ -156,3 +156,7 @@ input {
     position: relative;
     margin-top: calc(-2rem - 5vw);
 }
+
+input:invalid {
+    border-color: red;
+}
